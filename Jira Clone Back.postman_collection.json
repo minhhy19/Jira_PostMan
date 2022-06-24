@@ -1,0 +1,1200 @@
+{
+	"info": {
+		"_postman_id": "861e06f2-eae2-4d17-8f83-716b5ae5aa51",
+		"name": "Jira Clone Back",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18829388"
+	},
+	"item": [
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Create Project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"projectName\": \"Dự án web 1\",\r\n  \"description\": \"<p>web 1</p>\",\r\n  \"categoryId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/project/createProjectAuthorize",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"createProjectAuthorize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Project",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localUrl}}/project/getAllProject?keyword=du",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"getAllProject"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "du"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project Detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localUrl}}/project/getProjectDetail?id=8",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"getProjectDetail"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Project",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"projectName\": \"project 44\",\r\n  \"description\": \"<p>Dự án web 3</p>\",\r\n  \"categoryId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/project/updateProject?projectId=5",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"updateProject"
+							],
+							"query": [
+								{
+									"key": "projectId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localUrl}}/project/deleteProject?projectId=9",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"deleteProject"
+							],
+							"query": [
+								{
+									"key": "projectId",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign User Project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"projectId\": 2,\r\n  \"userId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/project/assignUserProject",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"assignUserProject"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove User From Project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"projectId\": 8,\r\n  \"userId\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/project/removeUserFromProject",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"removeUserFromProject"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"listUserAsign\": [1],\r\n    \"taskName\": \"Task 2\",\r\n    \"description\": \"<p>task mobile 2</p>\",\r\n    \"statusId\": \"2\",\r\n    \"originalEstimate\": 1,\r\n    \"timeTrackingSpent\": 2,\r\n    \"timeTrackingRemaining\": 2,\r\n    \"projectId\": 1,\r\n    \"typeId\": 1,\r\n    \"priorityId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/project/createTask",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"createTask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task Detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localUrl}}/project/getTaskDetail?taskId=10",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"getTaskDetail"
+							],
+							"query": [
+								{
+									"key": "taskId",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"listUserAsign\": [\r\n        8, 9\r\n    ],\r\n    \"taskId\": 10,\r\n    \"taskName\": \"Task update\",\r\n    \"description\": \"<p>task mobile</p>\",\r\n    \"statusId\": \"2\",\r\n    \"originalEstimate\": 1,\r\n    \"timeTrackingSpent\": 2,\r\n    \"timeTrackingRemaining\": 2,\r\n    \"projectId\": 8,\r\n    \"typeId\": 1,\r\n    \"priorityId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/project/updateTask",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"updateTask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Task",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localUrl}}/project/removeTask?taskId=9",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"removeTask"
+							],
+							"query": [
+								{
+									"key": "taskId",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign User Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"taskId\": 1,\r\n  \"userId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/project/assignUserTask",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"assignUserTask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove User From Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"taskId\": 17,\r\n  \"userId\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/project/removeUserFromTask",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"removeUserFromTask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"taskId\": 1,\r\n  \"statusId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/project/updateStatus",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"updateStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Priority",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"taskId\": 17,\r\n  \"priorityId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/project/updatePriority",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"updatePriority"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Description",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"taskId\": 17,\r\n  \"description\": \"<p>update mô tả 1</p>\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/project/updateDescription",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"updateDescription"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Time Tracking",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"taskId\": 17,\r\n  \"timeTrackingSpent\": 3,\r\n  \"timeTrackingRemaining\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/project/updateTimeTracking",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"updateTimeTracking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Estimate",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"taskId\": 17,\r\n  \"originalEstimate\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/project/updateEstimate",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"project",
+								"updateEstimate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Minh Hy\",\r\n    \"email\": \"hy@gmail.com\",\r\n    \"passWord\": \"123456\",\r\n    \"phoneNumber\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/users/signup",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 9,\r\n  \"passWord\": \"123456\",\r\n  \"email\": \"hy4@gmail.com\",\r\n  \"name\": \"hy4444\",\r\n  \"phoneNumber\": \"6543210\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/users/editUser",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"users",
+								"editUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localUrl}}/users/deleteUser?id=17",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"users",
+								"deleteUser"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "17"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Project Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localUrl}}/users/getUserByProjectId?idProject=11",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"users",
+								"getUserByProjectId"
+							],
+							"query": [
+								{
+									"key": "idProject",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localUrl}}/users/getUser",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"users",
+								"getUser"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "vi",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project Category",
+			"item": [
+				{
+					"name": "Create Project Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectCategoryName\": \"Dự án di động\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/projectCategory/createProjectCategory",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"projectCategory",
+								"createProjectCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Project Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/projectCategory",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"projectCategory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Priority",
+			"item": [
+				{
+					"name": "Create Priority",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"priority\": \"Lowest\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/priority/create",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"priority",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Priority",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/priority/getAll",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"priority",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Status",
+			"item": [
+				{
+					"name": "Create Status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"statusName\": \"DONE\",\r\n    \"alias\": \"hoàn thành\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/status/create",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"status",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/status/getAll",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"status",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TaskType",
+			"item": [
+				{
+					"name": "Create Task Type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"taskType\": \"new task\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/taskType/create",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"taskType",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Task Type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/taskType/getAll",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"taskType",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Get All Comment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/comment/getAll?taskId=5",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"comment",
+								"getAll"
+							],
+							"query": [
+								{
+									"key": "taskId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"taskId\": 11,\r\n  \"contentComment\": \"cmt user huy11111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/comment/insertComment",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"comment",
+								"insertComment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Comment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 21,\r\n  \"contentComment\": \"cmt user huy11111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/comment/updateComment",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"comment",
+								"updateComment"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6",
+									"disabled": true
+								},
+								{
+									"key": "contentComment",
+									"value": "cmt update",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{localAuthorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localUrl}}/comment/deleteComment?idComment=21",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"comment",
+								"deleteComment"
+							],
+							"query": [
+								{
+									"key": "idComment",
+									"value": "21"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{localAuthorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"hy\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localUrl}}/private",
+					"host": [
+						"{{localUrl}}"
+					],
+					"path": [
+						"private"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign In",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var res = JSON.parse(responseBody);\r",
+							"pm.environment.set(\"localAuthorization\", res.content.accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"hy@gmail.com\",\r\n  \"passWord\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localUrl}}/users/signin",
+					"host": [
+						"{{localUrl}}"
+					],
+					"path": [
+						"users",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ping",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localUrl}}/ping",
+					"host": [
+						"{{localUrl}}"
+					],
+					"path": [
+						"ping"
+					],
+					"query": [
+						{
+							"key": "asd",
+							"value": "dasdsa",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
